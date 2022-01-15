@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Medicinal_Plants</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Лекарственные растения</string>
+
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Настройки</string>
+    <string name="action_author">Об авторе</string>
+
+    <string name="menu_medicinal_plants">Лекарственные растения</string>
+    <string name="menu_ills">Недуги и хвори</string>
+    <string name="menu_identifier">Атлас-определитель</string>
+
+    <string name="menu_recipes">Рецепты приготовления</string>
+    <string name="menu_collection_storage">Сбор и хранение</string>
+    <string name="menu_advices">Полезные советы и статьи</string>
+</resources>

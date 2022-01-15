@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="medicinal_plants">
+        <item>Зверобой</item>
+        <item>Имбирь</item>
+        <item>Календула</item>
+        <item>Кипрей(Иван-чай)</item>
+        <item>Левзея</item>
+        <item>Мелисса</item>
+        <item>Можжевельник</item>
+        <item>Мята</item>
+        <item>Облепиха</item>
+        <item>Полынь</item>
+        <item>Ромашка</item>
+        <item>Тимьян(Чабрец)</item>
+        <item>Тысячелистник</item>
+        <item>Шалфей</item>
+    </string-array>
+
+    <string-array name="ills">
+        <item>Болезни Сердечно-сосудистой системы</item>
+        <item>Урология</item>
+        <item>Неврология</item>
+        <item>Травматология</item>
+        <item>Стоматология</item>
+        <item>Болезни ЛОР-органов</item>
+        <item>Болезни органов ЖКТ</item>
+        <item>Эндокринная система</item>
+        <item>Ортопедия</item>
+    </string-array>
+
+    <string-array name="identifier">
+        <item>По плодам</item>
+        <item>По соцветиям</item>
+        <item>По корням</item>
+        <item>По вегетативным частям</item>
+        <item>По другим признакам (физические, химические и др.)</item>
+    </string-array>
+
+    <string-array name="recipes">
+        <item>Настойки</item>
+        <item>Отвары</item>
+        <item>Настои</item>
+        <item>Салаты</item>
+        <item>Натуральное потребление</item>
+    </string-array>
+
+    <string-array name="collection_storage">
+        <item>Ареалы произрастания</item>
+        <item>Время сбора</item>
+        <item>Хранение</item>
+    </string-array>
+
+    <string-array name="advices">
+        <item>Во всем знай меру!</item>
+        <item>Не уверен - не бери!</item>
+        <item>Природная аптека врачам дополнение, а не замена!</item>
+        <item>Чудеса, да и только!("Что мы без веры?!")</item>
+    </string-array>
+
+</resources>
