@@ -1,20 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="medicinal_plants">
+        <item>Алоэ</item>
+        <item>Боярышник</item>
+        <item>Горец птичий</item>
+        <item>Душица</item>
+        <item>Ежевика</item>
         <item>Зверобой</item>
+        <item>Земляника</item>
         <item>Имбирь</item>
         <item>Календула</item>
-        <item>Кипрей(Иван-чай)</item>
+        <item>Кипрей</item>
+        <item>Клевер</item>
+        <item>Крыжовник</item>
         <item>Левзея</item>
+        <item>Малина</item>
         <item>Мелисса</item>
         <item>Можжевельник</item>
         <item>Мята</item>
         <item>Облепиха</item>
+        <item>Подорожник</item>
         <item>Полынь</item>
         <item>Ромашка</item>
-        <item>Тимьян(Чабрец)</item>
+        <item>Рябина</item>
+        <item>Смородина</item>
+        <item>Тимьян</item>
         <item>Тысячелистник</item>
         <item>Шалфей</item>
+        <item>Шиповник</item>
     </string-array>
 
     <string-array name="ills">

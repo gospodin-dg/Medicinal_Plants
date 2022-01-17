@@ -1,8 +1,11 @@
 package com.example.medicinal_plants;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 //import android.widget.Toolbar;
@@ -25,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ListView plants_view;
     private ArrayAdapter<String> plants_adapter;
 
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +40,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         plants_adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<String>(Arrays.asList(plants_array)));
         plants_view.setAdapter(plants_adapter);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.menu_medicinal_plants);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -44,6 +50,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        plants_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent intent = new Intent(MainActivity.this, PageContentActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
     }
 
@@ -93,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             plants_adapter.clear();
             plants_adapter.addAll(plants_array);
             plants_adapter.notifyDataSetChanged();
+            toolbar.setTitle(R.string.menu_medicinal_plants);
         }
 
         else if (id==R.id.nav_ills)
@@ -101,6 +119,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             plants_adapter.clear();
             plants_adapter.addAll(plants_array);
             plants_adapter.notifyDataSetChanged();
+            toolbar.setTitle(R.string.menu_ills);
         }
 
         else if (id==R.id.nav_identifier)
@@ -109,6 +128,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             plants_adapter.clear();
             plants_adapter.addAll(plants_array);
             plants_adapter.notifyDataSetChanged();
+            toolbar.setTitle(R.string.menu_identifier);
         }
 
         else if (id==R.id.nav_recipes)
@@ -117,6 +137,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             plants_adapter.clear();
             plants_adapter.addAll(plants_array);
             plants_adapter.notifyDataSetChanged();
+            toolbar.setTitle(R.string.menu_recipes);
         }
 
         else if (id==R.id.nav_collection_storage)
@@ -125,6 +146,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             plants_adapter.clear();
             plants_adapter.addAll(plants_array);
             plants_adapter.notifyDataSetChanged();
+            toolbar.setTitle(R.string.menu_collection_storage);
         }
 
         else if (id==R.id.nav_advices)
@@ -133,6 +155,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             plants_adapter.clear();
             plants_adapter.addAll(plants_array);
             plants_adapter.notifyDataSetChanged();
+            toolbar.setTitle(R.string.menu_advices);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
