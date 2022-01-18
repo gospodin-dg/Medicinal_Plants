@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private Toolbar toolbar;
 
+    private int menu_item = 0;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,11 +59,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Intent intent = new Intent(MainActivity.this, PageContentActivity.class);
+                intent.putExtra("menu_item", menu_item);
+                intent.putExtra("menu_item_item", position);
                 startActivity(intent);
             }
         });
-
-
 
     }
 
@@ -111,6 +114,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             plants_adapter.addAll(plants_array);
             plants_adapter.notifyDataSetChanged();
             toolbar.setTitle(R.string.menu_medicinal_plants);
+            menu_item = 0;
         }
 
         else if (id==R.id.nav_ills)
@@ -120,6 +124,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             plants_adapter.addAll(plants_array);
             plants_adapter.notifyDataSetChanged();
             toolbar.setTitle(R.string.menu_ills);
+            menu_item = 1;
         }
 
         else if (id==R.id.nav_identifier)
@@ -129,6 +134,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             plants_adapter.addAll(plants_array);
             plants_adapter.notifyDataSetChanged();
             toolbar.setTitle(R.string.menu_identifier);
+            menu_item = 2;
         }
 
         else if (id==R.id.nav_recipes)
@@ -138,6 +144,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             plants_adapter.addAll(plants_array);
             plants_adapter.notifyDataSetChanged();
             toolbar.setTitle(R.string.menu_recipes);
+            menu_item = 3;
         }
 
         else if (id==R.id.nav_collection_storage)
@@ -147,6 +154,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             plants_adapter.addAll(plants_array);
             plants_adapter.notifyDataSetChanged();
             toolbar.setTitle(R.string.menu_collection_storage);
+            menu_item = 4;
         }
 
         else if (id==R.id.nav_advices)
@@ -156,6 +164,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             plants_adapter.addAll(plants_array);
             plants_adapter.notifyDataSetChanged();
             toolbar.setTitle(R.string.menu_advices);
+            menu_item = 5;
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

@@ -71,5 +71,68 @@
 
     </string>
 
+    <string name="medicinal_plants_1"> Боярышник </string>
+    <string name="medicinal_plants_2"> Горец птичий </string>
+    <string name="medicinal_plants_3"> Душица </string>
+    <string name="medicinal_plants_4"> Ежевика </string>
+    <string name="medicinal_plants_5"> Зверобой </string>
+    <string name="medicinal_plants_6"> Земляника </string>
+    <string name="medicinal_plants_7"> Имбирь </string>
+    <string name="medicinal_plants_8"> Календула </string>
+    <string name="medicinal_plants_9"> Кипрей </string>
+    <string name="medicinal_plants_10"> Клевер </string>
+    <string name="medicinal_plants_11"> Крыжовник </string>
+    <string name="medicinal_plants_12"> Левзея </string>
+    <string name="medicinal_plants_13"> Малина </string>
+    <string name="medicinal_plants_14"> Мелисса </string>
+    <string name="medicinal_plants_15"> Можжевельник </string>
+    <string name="medicinal_plants_16"> Мята </string>
+    <string name="medicinal_plants_17"> Облепиха </string>
+    <string name="medicinal_plants_18"> Подорожник </string>
+    <string name="medicinal_plants_19"> Полынь </string>
+    <string name="medicinal_plants_20"> Ромашка </string>
+    <string name="medicinal_plants_21"> Рябина </string>
+    <string name="medicinal_plants_22"> Смородина </string>
+    <string name="medicinal_plants_23"> Тимьян </string>
+    <string name="medicinal_plants_24"> Тысячелистник </string>
+    <string name="medicinal_plants_25"> Шалфей </string>
+    <string name="medicinal_plants_26"> Шиповник </string>
+
+
+    <string name="ills_0"> Болезни Сердечно-сосудистой системы </string>
+    <string name="ills_1"> Урология </string>
+    <string name="ills_2"> Неврология </string>
+    <string name="ills_3"> Травматология </string>
+    <string name="ills_4"> Стоматология </string>
+    <string name="ills_5"> Болезни ЛОР-органов </string>
+    <string name="ills_6"> Болезни органов ЖКТ </string>
+    <string name="ills_7"> Эндокринная система </string>
+    <string name="ills_8"> Ортопедия </string>
+
+
+    <string name="identifier_0"> По плодам </string>
+    <string name="identifier_1"> По соцветиям </string>
+    <string name="identifier_2"> По корням </string>
+    <string name="identifier_3"> По вегетативным частям </string>
+    <string name="identifier_4"> По другим признакам (физические, химические и др.) </string>
+
+
+    <string name="recipes_0"> Настойки </string>
+    <string name="recipes_1"> Отвары </string>
+    <string name="recipes_2"> Настои </string>
+    <string name="recipes_3"> Салаты </string>
+    <string name="recipes_4"> Натуральное потребление </string>
+
+
+    <string name="collection_storage_0"> Ареалы произрастания </string>
+    <string name="collection_storage_1"> Время сбора </string>
+    <string name="collection_storage_2"> Сбор </string>
+    <string name="collection_storage_3"> Хранение </string>
+
+
+    <string name="advices_0"> Во всем знай меру! </string>
+    <string name="advices_1"> Не уверен - не бери! </string>
+    <string name="advices_2"> Природная аптека врачам дополнение, а не замена! </string>
+    <string name="advices_3"> Чудеса, да и только!("Что мы без веры?!") </string>
 
 </resources>

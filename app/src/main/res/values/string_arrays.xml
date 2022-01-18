@@ -61,6 +61,7 @@
     <string-array name="collection_storage">
         <item>Ареалы произрастания</item>
         <item>Время сбора</item>
+        <item>Сбор</item>
         <item>Хранение</item>
     </string-array>
 
