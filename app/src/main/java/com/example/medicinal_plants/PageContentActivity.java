@@ -1,6 +1,7 @@
 package com.example.medicinal_plants;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.widget.TextView;
@@ -27,15 +28,22 @@ public class PageContentActivity extends AppCompatActivity {
     private int[] collection_storage = {R.string.collection_storage_0, R.string.collection_storage_1, R.string.collection_storage_2, R.string.collection_storage_3};
     private int[] advices = {R.string.advices_0, R.string.advices_1, R.string.advices_2, R.string.advices_3};
     private TextView content_text;
+    private Typeface pangolin;
 
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_content);
+        init();
+    }
+
+    private void init(){
         intent = getIntent();
         content_text = findViewById(R.id.page_content_text);
         setContentText();
+        pangolin = Typeface.createFromAsset(getAssets(),"fonts/Pacifico-Regular.ttf");
+        content_text.setTypeface(pangolin);
     }
 
     private void setContentText(){
