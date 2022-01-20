@@ -7,6 +7,7 @@
         <entry key="..\:/Programing/Android_Studio_Projects/Medicinal_Plants/app/src/main/res/drawable/ic_recipes.xml" value="0.37083333333333335" />
         <entry key="..\:/Programing/Android_Studio_Projects/Medicinal_Plants/app/src/main/res/drawable/ic_useful_tips.xml" value="0.37083333333333335" />
         <entry key="..\:/Programing/Android_Studio_Projects/Medicinal_Plants/app/src/main/res/drawable/side_nav_bar.xml" value="0.37083333333333335" />
+        <entry key="..\:/Programing/Android_Studio_Projects/Medicinal_Plants/app/src/main/res/layout/about_author.xml" value="0.3546875" />
         <entry key="..\:/Programing/Android_Studio_Projects/Medicinal_Plants/app/src/main/res/layout/activity_main.xml" value="0.3546875" />
         <entry key="..\:/Programing/Android_Studio_Projects/Medicinal_Plants/app/src/main/res/layout/activity_page_content.xml" value="0.3546875" />
         <entry key="..\:/Programing/Android_Studio_Projects/Medicinal_Plants/app/src/main/res/layout/app_bar_main.xml" value="0.3546875" />
@@ -21,6 +22,7 @@
         <entry key="..\:/Programing/Android_Studio_Projects/Medicinal_Plants/app/src/main/res/menu/activity_main_drawer.xml" value="0.3546875" />
         <entry key="..\:/Programing/Android_Studio_Projects/Medicinal_Plants/app/src/main/res/menu/main.xml" value="0.3546875" />
         <entry key="..\:/Programing/Android_Studio_Projects/Medicinal_Plants/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.37083333333333335" />
+        <entry key="..\:/Programing/Android_Studio_Projects/Medicinal_Plants/app/src/main/res/xml/root_preferences.xml" value="0.3546875" />
       </map>
     </option>
   </component>
