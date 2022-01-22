@@ -8,4 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="nav_header_background">#1ABC30</color>
+    <color name="background_logo">#252525</color>
+    <color name="logo">#424242</color>
+    <color name="green">#3FF30C</color>
 </resources>
