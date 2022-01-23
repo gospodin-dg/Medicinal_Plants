@@ -24,6 +24,7 @@ public class LogoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.logo);
         init();
+//        startMainActivity();
     }
 
     private void init() {
@@ -40,7 +41,21 @@ public class LogoActivity extends AppCompatActivity {
         titleLogo.startAnimation(titleAnimation);
     }
 
-
+/*    private void startMainActivity() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(5000);
+                    Intent intent = new Intent(LogoActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+                catch(Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }*/
 
 
     public void onClickStartApp(View view) {
