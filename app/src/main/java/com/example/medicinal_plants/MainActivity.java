@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.medicinal_plants.settings.SettingsActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -91,16 +92,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     {
         int id = item.getItemId();
 
-        if(id==R.id.action_settings)
-        {
-            Intent intent = new Intent(this, SettingsActivity.class);
+        if(id == R.id.action_settings) {
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
             startActivity(intent);
-            return true;
-        }
-        else if (id == R.id.action_author)
-        {
-            setContentView(R.layout.about_author);
-            return true;
         }
 
         return super.onOptionsItemSelected(item);

@@ -6,30 +6,30 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_medicinal_plants"
-            android:icon="@drawable/ic_medicinal_plants"
+
             android:title="@string/menu_medicinal_plants" />
         <item
             android:id="@+id/nav_ills"
-            android:icon="@drawable/ic_ills"
+
             android:title="@string/menu_ills" />
         <item
             android:id="@+id/nav_identifier"
-            android:icon="@drawable/ic_identifier"
+
             android:title="@string/menu_identifier" />
     </group>
     <item android:title="Разное">
         <menu>
             <item
                 android:id="@+id/nav_recipes"
-                android:icon="@drawable/ic_recipes"
+
                 android:title="@string/menu_recipes" />
             <item
                 android:id="@+id/nav_collection_storage"
-                android:icon="@drawable/ic_collection_storage"
+
                 android:title="@string/menu_collection_storage" />
             <item
                 android:id="@+id/nav_advices"
-                android:icon="@drawable/ic_useful_tips"
+
                 android:title="@string/menu_advices" />
         </menu>
     </item>

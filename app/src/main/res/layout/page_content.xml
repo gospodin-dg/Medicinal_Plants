@@ -35,12 +35,6 @@
                     android:layout_weight="1"
                     android:src="@drawable/aloe" />
 
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:layout_weight="1" />
             </LinearLayout>
 
             <TextView
@@ -51,7 +45,8 @@
                 android:layout_marginBottom="10dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:text="@string/medicinal_plants_0" />
+                android:text="@string/medicinal_plants_0"
+                android:textColor="@color/black" />
 
             <LinearLayout
                 android:layout_width="match_parent"

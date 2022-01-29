@@ -3,14 +3,15 @@ package com.example.medicinal_plants;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class PageContentActivity extends AppCompatActivity {
 
+    private ActionBar actionBar;
     private int menu_item = 0;
     private int menu_item_item = 0;
     private Intent intent;
@@ -21,6 +22,7 @@ public class PageContentActivity extends AppCompatActivity {
                                       R.string.medicinal_plants_16, R.string.medicinal_plants_17, R.string.medicinal_plants_18, R.string.medicinal_plants_19,
                                       R.string.medicinal_plants_20, R.string.medicinal_plants_21, R.string.medicinal_plants_22, R.string.medicinal_plants_23,
                                       R.string.medicinal_plants_24, R.string.medicinal_plants_25, R.string.medicinal_plants_26};
+
     private int[] ills = {R.string.ills_0, R.string.ills_1, R.string.ills_2, R.string.ills_3, R.string.ills_4, R.string.ills_5, R.string.ills_6,
                           R.string.ills_7, R.string.ills_8};
     private int[] identifier = {R.string.identifier_0, R.string.identifier_1, R.string.identifier_2, R.string.identifier_3, R.string.identifier_4};
@@ -30,20 +32,36 @@ public class PageContentActivity extends AppCompatActivity {
     private TextView content_text;
     private Typeface pangolin;
 
+    private String[] medicinal_plants_titles;
+    private String[] ills_titles;
+    private String[] identifier_titles;
+    private String[] recipes_titles;
+    private String[] collection_storage_titles;
+    private String[] advices_titles;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_content);
         init();
+        setContentText();
     }
 
     private void init(){
         intent = getIntent();
         content_text = findViewById(R.id.page_content_text);
-        setContentText();
+        if(getSupportActionBar() != null)
+        {
+            actionBar = getSupportActionBar();
+        }
         pangolin = Typeface.createFromAsset(getAssets(),"fonts/Pacifico-Regular.ttf");
         content_text.setTypeface(pangolin);
+        medicinal_plants_titles = getResources().getStringArray(R.array.medicinal_plants);
+        ills_titles = getResources().getStringArray(R.array.ills);
+        identifier_titles = getResources().getStringArray(R.array.identifier);
+        recipes_titles = getResources().getStringArray(R.array.recipes);
+        collection_storage_titles = getResources().getStringArray(R.array.collection_storage);
+        advices_titles = getResources().getStringArray(R.array.advices);
     }
 
     private void setContentText(){
@@ -55,22 +73,36 @@ public class PageContentActivity extends AppCompatActivity {
         switch (menu_item){
             case 0:
                 content_text.setText(medicinal_plants[menu_item_item]);
+                setTitleActionBar(medicinal_plants_titles, menu_item_item);
                 break;
             case 1:
                 content_text.setText(ills[menu_item_item]);
+                setTitleActionBar(ills_titles, menu_item_item);
                 break;
             case 2:
                 content_text.setText(identifier[menu_item_item]);
+                setTitleActionBar(identifier_titles, menu_item_item);
                 break;
             case 3:
                 content_text.setText(recipes[menu_item_item]);
+                setTitleActionBar(recipes_titles, menu_item_item);
                 break;
             case 4:
                 content_text.setText(collection_storage[menu_item_item]);
+                setTitleActionBar(collection_storage_titles, menu_item_item);
                 break;
             case 5:
                 content_text.setText(advices[menu_item_item]);
+                setTitleActionBar(advices_titles, menu_item_item);
                 break;
+        }
+    }
+
+    private void setTitleActionBar(String[] selected_menu_item, int selected_menu_item_item)
+    {
+        if (getSupportActionBar() != null)
+        {
+            actionBar.setTitle(selected_menu_item[selected_menu_item_item]);
         }
     }
 
