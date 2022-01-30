@@ -1,8 +1,11 @@
 package com.example.medicinal_plants;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -30,7 +33,7 @@ public class PageContentActivity extends AppCompatActivity {
     private int[] collection_storage = {R.string.collection_storage_0, R.string.collection_storage_1, R.string.collection_storage_2, R.string.collection_storage_3};
     private int[] advices = {R.string.advices_0, R.string.advices_1, R.string.advices_2, R.string.advices_3};
     private TextView content_text;
-    private Typeface pangolin;
+    private Typeface pangolin, oswald, pacifico, robotomono;
 
     private String[] medicinal_plants_titles;
     private String[] ills_titles;
@@ -38,6 +41,7 @@ public class PageContentActivity extends AppCompatActivity {
     private String[] recipes_titles;
     private String[] collection_storage_titles;
     private String[] advices_titles;
+    private SharedPreferences sharedPreferences;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,14 +58,20 @@ public class PageContentActivity extends AppCompatActivity {
         {
             actionBar = getSupportActionBar();
         }
-        pangolin = Typeface.createFromAsset(getAssets(),"fonts/Pacifico-Regular.ttf");
-        content_text.setTypeface(pangolin);
+        pangolin = Typeface.createFromAsset(getAssets(),"fonts/Pangolin-Regular.ttf");
+        oswald = Typeface.createFromAsset(getAssets(),"fonts/Oswald-VariableFont_wght.ttf");
+        pacifico = Typeface.createFromAsset(getAssets(),"fonts/Pacifico-Regular.ttf");
+        robotomono = Typeface.createFromAsset(getAssets(),"fonts/RobotoMono-VariableFont_wght.ttf");
+//        content_text.setTypeface(pangolin);
         medicinal_plants_titles = getResources().getStringArray(R.array.medicinal_plants);
         ills_titles = getResources().getStringArray(R.array.ills);
         identifier_titles = getResources().getStringArray(R.array.identifier);
         recipes_titles = getResources().getStringArray(R.array.recipes);
         collection_storage_titles = getResources().getStringArray(R.array.collection_storage);
         advices_titles = getResources().getStringArray(R.array.advices);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        setTextSize();
+        setTextFont();
     }
 
     private void setContentText(){
@@ -105,5 +115,49 @@ public class PageContentActivity extends AppCompatActivity {
             actionBar.setTitle(selected_menu_item[selected_menu_item_item]);
         }
     }
+
+    private void setTextSize(){
+        String text_size = sharedPreferences.getString("text_size_settings", "15sp");
+        if(text_size != null){
+            switch (text_size){
+                case "10sp":
+                    content_text.setTextSize(10);
+                    break;
+                case "15sp":
+                    content_text.setTextSize(15);
+                    break;
+                case "20sp":
+                    content_text.setTextSize(20);
+                    break;
+                case "25sp":
+                    content_text.setTextSize(25);
+                    break;
+                case "30sp":
+                    content_text.setTextSize(30);
+                    break;
+            }
+        }
+    }
+
+    private void setTextFont(){
+        String text_font = sharedPreferences.getString("text_font_settings", "Pangolin");
+        if(text_font != null){
+            switch (text_font){
+                case "Oswald":
+                    content_text.setTypeface(oswald);
+                    break;
+                case "Pacifico":
+                    content_text.setTypeface(pacifico);
+                    break;
+                case "Pangolin":
+                    content_text.setTypeface(pangolin);
+                    break;
+                case "RobotoMono":
+                    content_text.setTypeface(robotomono);
+                    break;
+            }
+        }
+    }
+
 
 }

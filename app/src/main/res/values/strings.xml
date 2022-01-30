@@ -20,6 +20,25 @@
     <string name="start_button_logo">Start Application!</string>
 
 
+    <string name="text_settings">Настройки текста</string>
+    <string name="theme_settings">Настройки темы</string>
+    <string name="color_settings">Настройки цвета</string>
+
+
+    <string name="text_size_settings">Размер текста</string>
+    <string name="text_font_settings">Шрифт текста</string>
+    <string name="text_style_settings">Начертание текста</string>
+    <string name="text_color_settings">Цвет текста</string>
+
+
+    <string name="themes_settings">Выбор темы</string>
+
+
+
+    <string name="menu_drawer_color_settings">Цвет выпадающего меню</string>
+    <string name="actionbar_color_settings">Цвет панели инструментов</string>
+
+
 
     <string name="medicinal_plants_0">Ало́э (лат. Áloë) — род суккулентных растений семейства Асфоделовые (Asphodelaceae) подсемейства Асфоделовые
         (Asphodeloideae), содержащий более 550 видов[3], распространённых в Африке и на Аравийском полуострове. Ранее род Алоэ относили к семействам

@@ -72,4 +72,72 @@
         <item>\"Чудеса, да и только!("Что мы без веры?!")\"</item>
     </string-array>
 
+    <string-array name="array_text_size_settings">
+        <item>10sp"</item>
+        <item>15sp</item>
+        <item>20sp</item>
+        <item>25sp</item>
+        <item>30sp</item>
+    </string-array>
+
+    <string-array name="array_text_font_settings">
+        <item>Oswald</item>
+        <item>Pacifico</item>
+        <item>Pangolin</item>
+        <item>RobotoMono</item>
+    </string-array>
+
+    <string-array name="array_text_style_settings">
+        <item>Bold</item>
+        <item>Italic</item>
+        <item>Bold-Italic</item>
+        <item>Regular</item>
+    </string-array>
+
+    <string-array name="array_text_color_settings">
+        <item>Black</item>
+        <item>White</item>
+        <item>Yellow</item>
+        <item>Red</item>
+        <item>Green</item>
+        <item>Orange</item>
+        <item>Blue</item>
+        <item>Purple</item>
+    </string-array>
+
+    <string-array name="array_themes_settings">
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+
+    <string-array name="array_styles_settings">
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+
+    <string-array name="array_menu_drawer_color_settings">
+        <item>Black</item>
+        <item>White</item>
+        <item>Yellow</item>
+        <item>Red</item>
+        <item>Green</item>
+        <item>Orange</item>
+        <item>Blue</item>
+        <item>Purple</item>
+        <item>Default</item>
+    </string-array>
+
+    <string-array name="array_actionbar_color_settings">
+        <item>Black</item>
+        <item>White</item>
+        <item>Yellow</item>
+        <item>Red</item>
+        <item>Green</item>
+        <item>Orange</item>
+        <item>Blue</item>
+        <item>Purple</item>
+        <item>Default</item>
+    </string-array>
+
+
 </resources>

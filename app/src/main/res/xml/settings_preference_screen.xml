@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/text_settings">
+        <ListPreference
+            android:defaultValue="15sp"
+            android:entries="@array/array_text_size_settings"
+            android:entryValues="@array/array_text_size_settings"
+            android:key="text_size_settings"
+            android:title="@string/text_size_settings" />
+        <ListPreference
+            android:defaultValue="Pangolin"
+            android:entries="@array/array_text_font_settings"
+            android:entryValues="@array/array_text_font_settings"
+            android:key="text_font_settings"
+            android:title="@string/text_font_settings" />
+        <ListPreference
+            android:defaultValue="Regular"
+            android:entries="@array/array_text_style_settings"
+            android:entryValues="@array/array_text_style_settings"
+            android:key="text_style_settings"
+            android:title="@string/text_style_settings" />
+        <ListPreference
+            android:defaultValue="Black"
+            android:entries="@array/array_text_color_settings"
+            android:entryValues="@array/array_text_color_settings"
+            android:key="text_color_settings"
+            android:title="@string/text_color_settings" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/theme_settings">
+
+        <ListPreference
+            android:defaultValue="Light"
+            android:entries="@array/array_themes_settings"
+            android:entryValues="@array/array_themes_settings"
+            android:key="themes_settings"
+            android:title="@string/themes_settings" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/color_settings">
+
+        <ListPreference
+            android:defaultValue="Default"
+            android:entries="@array/array_menu_drawer_color_settings"
+            android:entryValues="@array/array_menu_drawer_color_settings"
+            android:key="menu_drawer_color_settings"
+            android:title="@string/menu_drawer_color_settings" />
+        <ListPreference
+            android:defaultValue="Default"
+            android:entries="@array/array_actionbar_color_settings"
+            android:entryValues="@array/array_actionbar_color_settings"
+            android:key="actionbar_color_settings"
+            android:title="@string/actionbar_color_settings" />
+    </PreferenceCategory>
+</PreferenceScreen>
