@@ -73,11 +73,11 @@
     </string-array>
 
     <string-array name="array_text_size_settings">
-        <item>10sp"</item>
-        <item>15sp</item>
-        <item>20sp</item>
-        <item>25sp</item>
-        <item>30sp</item>
+        <item>10"</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
     </string-array>
 
     <string-array name="array_text_font_settings">
@@ -88,56 +88,46 @@
     </string-array>
 
     <string-array name="array_text_style_settings">
-        <item>Bold</item>
-        <item>Italic</item>
-        <item>Bold-Italic</item>
-        <item>Regular</item>
+        <item>Жирный</item>
+        <item>Курсив</item>
+        <item>Жирный-Курсив</item>
+        <item>Обычный</item>
     </string-array>
 
     <string-array name="array_text_color_settings">
-        <item>Black</item>
-        <item>White</item>
-        <item>Yellow</item>
-        <item>Red</item>
-        <item>Green</item>
-        <item>Orange</item>
-        <item>Blue</item>
-        <item>Purple</item>
-    </string-array>
-
-    <string-array name="array_themes_settings">
-        <item>Light</item>
-        <item>Dark</item>
-    </string-array>
-
-    <string-array name="array_styles_settings">
-        <item>Light</item>
-        <item>Dark</item>
-    </string-array>
-
-    <string-array name="array_menu_drawer_color_settings">
-        <item>Black</item>
-        <item>White</item>
-        <item>Yellow</item>
-        <item>Red</item>
-        <item>Green</item>
-        <item>Orange</item>
-        <item>Blue</item>
-        <item>Purple</item>
-        <item>Default</item>
+        <item>Белый</item>
+        <item>Желтый</item>
+        <item>Зеленый</item>
+        <item>Красный</item>
+        <item>Серый</item>
+        <item>Синий</item>
+        <item>Фиолетовый</item>
+        <item>Черный</item>
+        <item>Стандартный</item>
     </string-array>
 
     <string-array name="array_actionbar_color_settings">
-        <item>Black</item>
-        <item>White</item>
-        <item>Yellow</item>
-        <item>Red</item>
-        <item>Green</item>
-        <item>Orange</item>
-        <item>Blue</item>
-        <item>Purple</item>
-        <item>Default</item>
+        <item>Белый</item>
+        <item>Желтый</item>
+        <item>Зеленый</item>
+        <item>Красный</item>
+        <item>Серый</item>
+        <item>Синий</item>
+        <item>Фиолетовый</item>
+        <item>Черный</item>
+        <item>Стандартный</item>
     </string-array>
 
+    <string-array name="array_background_color_settings">
+        <item>Белый</item>
+        <item>Желтый</item>
+        <item>Зеленый</item>
+        <item>Красный</item>
+        <item>Серый</item>
+        <item>Синий</item>
+        <item>Фиолетовый</item>
+        <item>Черный</item>
+        <item>Стандартный</item>
+    </string-array>
 
 </resources>

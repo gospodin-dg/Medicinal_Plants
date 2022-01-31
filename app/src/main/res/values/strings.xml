@@ -31,12 +31,10 @@
     <string name="text_color_settings">Цвет текста</string>
 
 
-    <string name="themes_settings">Выбор темы</string>
+    <string name="actionbar_color_settings">Цвет заголовка страницы с контентом</string>
+    <string name="background_color_settings">Цвет фона страницы с контентом</string>
 
 
-
-    <string name="menu_drawer_color_settings">Цвет выпадающего меню</string>
-    <string name="actionbar_color_settings">Цвет панели инструментов</string>
 
 
 
