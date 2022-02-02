@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.medicinal_plants.settings.DbTableList;
 import com.example.medicinal_plants.settings.SettingsActivity;
 import com.google.android.material.navigation.NavigationView;
 
@@ -24,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
 
     private String[] plants_array;
     private ListView plants_view;
@@ -93,8 +95,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if(id == R.id.action_settings) {
-            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-            startActivity(intent);
+            Intent intent1 = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent1);
+        }
+        else if(id == R.id.management_content){
+            Intent intent2 = new Intent(MainActivity.this, DbTableList.class);
+            startActivity(intent2);
         }
 
         return super.onOptionsItemSelected(item);

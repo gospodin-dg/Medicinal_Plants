@@ -8,6 +8,12 @@
         android:visible="true"
         app:showAsAction="never" />
     <item
+        android:id="@+id/management_content"
+        android:orderInCategory="100"
+        android:title="@string/management_content"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_author"
         android:orderInCategory="100"
         android:title="@string/action_author"

@@ -7,6 +7,8 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Настройки</string>
     <string name="action_author">Об авторе</string>
+    <string name="management_content">Управление контентом</string>
+
 
     <string name="menu_medicinal_plants">Лекарственные растения</string>
     <string name="menu_ills">Недуги и хвори</string>
@@ -157,6 +159,14 @@
     <string name="advices_3"> "\"Чудеса, да и только! Что мы без веры?!\"" </string>
 
     <string name="title_activity_settings">SettingsActivity</string>
+
+    <string name="create_med_plants_page_name">Управление контентом</string>
+    <string name="med_plants_name">Название растения</string>
+    <string name="med_plants_desc">Описание растения</string>
+
+    <string name="med_plants_save_btn">Сохранить</string>
+    <string name="med_plants_update_btn">Найти/Редактировать</string>
+    <string name="med_plants_delete_btn">Удалить</string>
 
 
 </resources>
