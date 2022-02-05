@@ -1,7 +1,9 @@
 package com.example.medicinal_plants.settings;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,6 +11,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.medicinal_plants.R;
+import com.example.medicinal_plants.db.DbTableContentManageMedplants;
 
 public class DbTableList extends AppCompatActivity {
     private ActionBar actionBar;
@@ -35,6 +38,24 @@ public class DbTableList extends AppCompatActivity {
             finish();
         }
         return true;
+    }
+
+    public void onMedPlantsClick(View view){
+        Intent intent = new Intent(DbTableList.this, DbTableContentManageMedplants.class);
+        startActivity(intent);
+    }
+
+    private void onIllsClick(){
+
+    }
+    private void onRecipesClick(){
+
+    }
+    private void onColStorClick(){
+
+    }
+    private void onAdvicesClick(){
+
     }
 
 }

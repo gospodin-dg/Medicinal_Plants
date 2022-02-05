@@ -11,10 +11,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="132dp"
         android:text="@string/menu_medicinal_plants"
+        android:onClick="onMedPlantsClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/ills_btn"
@@ -22,9 +24,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:text="@string/menu_ills"
+        android:onClick="onIllsClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/med_plants_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/med_plants_btn"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
         android:id="@+id/recipes_btn"
@@ -32,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:text="@string/menu_recipes"
+        android:onClick="onRecipesClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ills_btn" />
@@ -42,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:text="@string/menu_collection_storage"
+        android:onClick="onColStorClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recipes_btn" />
@@ -52,6 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:text="@string/menu_advices"
+        android:onClick="onAdvicesClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/collection_storage_btn" />

@@ -28,6 +28,7 @@
         <activity android:name=".PageContentActivity" />
         <activity android:name=".settings.SettingsActivity" />
         <activity android:name=".settings.DbTableList" />
+        <activity android:name=".db.DbTableContentManageMedplants" />
     </application>
 
 </manifest>

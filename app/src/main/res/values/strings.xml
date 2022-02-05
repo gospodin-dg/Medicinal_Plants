@@ -161,12 +161,22 @@
     <string name="title_activity_settings">SettingsActivity</string>
 
     <string name="create_med_plants_page_name">Управление контентом</string>
+
+
     <string name="med_plants_name">Название растения</string>
     <string name="med_plants_desc">Описание растения</string>
+    <string name="ills_treat">Лечение болезней</string>
+
+
 
     <string name="med_plants_save_btn">Сохранить</string>
     <string name="med_plants_update_btn">Найти/Редактировать</string>
     <string name="med_plants_delete_btn">Удалить</string>
+    <string name="med_plants_save">Запись сохранена в Базе данных!</string>
+    <string name="med_plants_no_save">Одно из полей не заполнено! Заполните ВСЕ поля!</string>
+
+
+
 
 
 </resources>

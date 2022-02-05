@@ -23,16 +23,17 @@ public class DbContentManagement {
         db = myDbHelper.getWritableDatabase();
     }
 
-    public void insertInDB(String name, String desc){
+    public void insertInDB(String name, String desc, String ills){
         ContentValues cv = new ContentValues();
         cv.put(Constants.NAME, name);
-        cv.put(Constants.DESCRIPTION, name);
-        db.insert(Constants.TABLE_MED_PLANTS, null, cv);
+        cv.put(Constants.DESCRIPTION, desc);
+        cv.put(Constants.ILLS, ills);
+        db.insert(Constants.TABLE_MEDPLANTS, null, cv);
     }
 
-    public List<String> readFromDB(){
+    public List<String> readNameFromDB(){
         List<String> med_plants = new ArrayList<>();
-        Cursor cursor = db.query(Constants.TABLE_MED_PLANTS, null, null, null, null, null, null);
+        Cursor cursor = db.query(Constants.TABLE_MEDPLANTS, null, null, null, null, null, null);
         while (cursor.moveToNext()){
             @SuppressLint("Range")
             String name_plants = cursor.getString(cursor.getColumnIndex(Constants.NAME));
@@ -41,6 +42,8 @@ public class DbContentManagement {
         cursor.close();
         return med_plants;
     }
+
+
 
     public void closeDB(){
         myDbHelper.close();

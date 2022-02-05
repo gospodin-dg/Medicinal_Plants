@@ -17,16 +17,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.medicinal_plants.db.DbContentManagement;
 import com.example.medicinal_plants.settings.DbTableList;
 import com.example.medicinal_plants.settings.SettingsActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
 
-
+    private DbContentManagement dbContentManagement;
+    private List<String> medPlantsNameList;
     private String[] plants_array;
     private ListView plants_view;
     private ArrayAdapter<String> plants_adapter;
@@ -38,10 +41,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        init();
+    }
+
+    private void init(){
+
+        dbContentManagement = new DbContentManagement(this);
+        dbContentManagement.openDB();
+        medPlantsNameList = dbContentManagement.readNameFromDB();
 
         plants_view = findViewById(R.id.plants_view);
-        plants_array = getResources().getStringArray(R.array.medicinal_plants);
-        plants_adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<String>(Arrays.asList(plants_array)));
+        plants_adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<String>(medPlantsNameList));
         plants_view.setAdapter(plants_adapter);
 
         toolbar = findViewById(R.id.toolbar);
@@ -65,9 +75,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
             }
         });
-
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        dbContentManagement.closeDB();
+    }
 
     @Override
     public void onBackPressed() {
@@ -107,11 +121,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    private void setContentList(int category_menu, int page_title, int menu_identifier)
+    private void setContentList(List<String> category_menu, int page_title, int menu_identifier)
     {
-        plants_array = getResources().getStringArray(category_menu);
+        medPlantsNameList = category_menu;
         plants_adapter.clear();
-        plants_adapter.addAll(plants_array);
+        plants_adapter.addAll(medPlantsNameList);
         plants_adapter.notifyDataSetChanged();
         toolbar.setTitle(page_title);
         menu_item = menu_identifier;
@@ -123,10 +137,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id==R.id.nav_medicinal_plants)
         {
-            setContentList(R.array.medicinal_plants, R.string.menu_medicinal_plants, 0);
+            setContentList(medPlantsNameList, R.string.menu_medicinal_plants, 0);
         }
 
-        else if (id==R.id.nav_ills)
+   /*     else if (id==R.id.nav_ills)
         {
             setContentList(R.array.ills, R.string.menu_ills, 1);
         }
@@ -149,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else if (id==R.id.nav_advices)
         {
             setContentList(R.array.advices, R.string.menu_advices, 5);
-        }
+        }*/
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
