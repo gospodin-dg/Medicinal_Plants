@@ -31,13 +31,21 @@ public class DbContentManagement {
         db.insert(Constants.TABLE_MEDPLANTS, null, cv);
     }
 
-    public List<String> readNameFromDB(){
-        List<String> med_plants = new ArrayList<>();
+    public ArrayList<MedPlant> readAllFromDB(){
+        ArrayList<MedPlant> med_plants = new ArrayList<>();
         Cursor cursor = db.query(Constants.TABLE_MEDPLANTS, null, null, null, null, null, null);
         while (cursor.moveToNext()){
+            MedPlant medPlant = new MedPlant();
             @SuppressLint("Range")
             String name_plants = cursor.getString(cursor.getColumnIndex(Constants.NAME));
-            med_plants.add(name_plants);
+            medPlant.setName(name_plants);
+            @SuppressLint("Range")
+            String des_plants = cursor.getString(cursor.getColumnIndex(Constants.DESCRIPTION));
+            medPlant.setDesc(des_plants);
+            @SuppressLint("Range")
+            String ill_plants = cursor.getString(cursor.getColumnIndex(Constants.ILLS));
+            medPlant.setIll(ill_plants);
+            med_plants.add(medPlant);
         }
         cursor.close();
         return med_plants;
