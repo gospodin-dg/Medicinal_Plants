@@ -32,7 +32,7 @@ public class DbContentManagement {
     }
 
     public ArrayList<MedPlant> readAllFromDB(){
-        ArrayList<MedPlant> med_plants = new ArrayList<>();
+        ArrayList<MedPlant> med_plants = new ArrayList<MedPlant>();
         Cursor cursor = db.query(Constants.TABLE_MEDPLANTS, null, null, null, null, null, null);
         while (cursor.moveToNext()){
             MedPlant medPlant = new MedPlant();

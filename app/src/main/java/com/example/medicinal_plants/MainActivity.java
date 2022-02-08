@@ -129,14 +129,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    private void setContentList(ArrayList category_menu, int page_title, int menu_identifier)
+    private void setContentList(int page_title, int menu_identifier)
     {
 
         plants_adapter.clear();
-        plants_adapter.addAll(category_menu);
-
+        medPlantsNameList = dbContentManagement.readAllFromDB();
+        plants_adapter.addAll(medPlantsNameList);
         plants_adapter.notifyDataSetChanged();
-        if(category_menu != null) Toast.makeText(this, "sdfghws", Toast.LENGTH_SHORT).show();
         toolbar.setTitle(page_title);
         menu_item = menu_identifier;
     }
@@ -147,15 +146,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id==R.id.nav_medicinal_plants)
         {
-            setContentList(medPlantsNameList, R.string.menu_medicinal_plants, 0);
+            setContentList(R.string.menu_medicinal_plants, 0);
         }
 
-   /*     else if (id==R.id.nav_ills)
+     else if (id==R.id.nav_ills)
         {
-            setContentList(R.array.ills, R.string.menu_ills, 1);
+            setContentList(R.string.menu_ills, 1);
+
         }
 
-        else if (id==R.id.nav_identifier)
+     /*   else if (id==R.id.nav_identifier)
         {
             setContentList(R.array.identifier, R.string.menu_identifier, 2);
         }

@@ -1,6 +1,7 @@
 package com.example.medicinal_plants.db;
 
 import android.view.LayoutInflater;
+import android.widget.Adapter;
 
 public class MedPlant {
     private String name;

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
@@ -19,9 +20,9 @@ public class MyAdapter extends ArrayAdapter<MedPlant> {
 
     private LayoutInflater inflater;
     private int list_item;
-    private ArrayList<MedPlant> medPlants;
+    private List<MedPlant> medPlants;
 
-    public MyAdapter(@NonNull Context context, int resource, @NonNull ArrayList<MedPlant> objects) {
+    public MyAdapter(@NonNull Context context, int resource, @NonNull List<MedPlant> objects) {
 
         super(context, resource, objects);
         this.inflater = LayoutInflater.from(context);
