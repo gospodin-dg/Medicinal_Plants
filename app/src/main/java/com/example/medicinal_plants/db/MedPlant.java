@@ -3,7 +3,9 @@ package com.example.medicinal_plants.db;
 import android.view.LayoutInflater;
 import android.widget.Adapter;
 
-public class MedPlant {
+import java.io.Serializable;
+
+public class MedPlant implements Serializable {
     private String name;
     private String desc;
     private String ill;

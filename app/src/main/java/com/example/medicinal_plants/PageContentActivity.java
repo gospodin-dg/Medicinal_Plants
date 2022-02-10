@@ -12,15 +12,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.medicinal_plants.db.DbFunctions;
 import com.example.medicinal_plants.db.MedPlant;
-
-import java.util.ArrayList;
+import com.example.medicinal_plants.settings.SettingsFunctions;
 
 public class PageContentActivity extends AppCompatActivity {
 
@@ -29,16 +25,11 @@ public class PageContentActivity extends AppCompatActivity {
     private TextView pageContentFooter;
     private ActionBar actionBar;
     private int menu_item = 0;
-    private int menu_item_item = 0;
     private Intent intent;
     private LinearLayout llImageHeader;
-
-    private DbFunctions db;
-    private ArrayList<MedPlant> medPlants;
-
+    private MedPlant medPlant;
     private SharedPreferences sharedPreferences;
     private Typeface pangolin, oswald, pacifico, robotomono;
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,41 +60,38 @@ public class PageContentActivity extends AppCompatActivity {
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        setTextSize();
-        setTextFont();
-        setTextDecoration();
+        SettingsFunctions.setTextSize(content_text, sharedPreferences);
+        SettingsFunctions.setTextFont(content_text, sharedPreferences, oswald, pacifico, pangolin, robotomono);
+        SettingsFunctions.setTextDecoration(content_text, sharedPreferences);
         setTextColors();
         setBackgroundColors();
         setActionbarColors();
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        db = new DbFunctions(this);
-        db.openDB();
-        medPlants = db.readAllFromDB();
         setContentText();
     }
 
     private void setContentText(){
         if(intent != null){
             menu_item = intent.getIntExtra("menu_item", 0);
-            menu_item_item = intent.getIntExtra("menu_item_item", 0);
+            medPlant = (MedPlant) intent.getSerializableExtra("selected_plant");
         }
-
         switch (menu_item){
             case 0:
-                content_text.setText(medPlants.get(menu_item_item).getDesc());
+                content_text.setText(medPlant.getDesc());
                 if(getSupportActionBar() != null)
                 {
-                    actionBar.setTitle(medPlants.get(menu_item_item).getName());
+                    actionBar.setTitle(medPlant.getName());
                 }
-                pageContentFooter.setText(medPlants.get(menu_item_item).getIll());
-                if(medPlants.get(menu_item_item).getPhoto().equals("Empty")){
+                pageContentFooter.setText(medPlant.getIll());
+                if(medPlant.getPhoto().equals("Empty")){
                     llImageHeader.setVisibility(View.GONE);
                 } else {
-                    pageContentHeaderImage.setImageURI(Uri.parse(medPlants.get(menu_item_item).getPhoto()));
+                    pageContentHeaderImage.setImageURI(Uri.parse(medPlant.getPhoto()));
                 }
                 break;
             case 1:
@@ -124,71 +112,7 @@ public class PageContentActivity extends AppCompatActivity {
         }
     }
 
-
-    private void setTextSize() {
-        String text_size = sharedPreferences.getString("text_size_settings", "15");
-        if(text_size != null){
-            switch (text_size){
-                case "10":
-                    content_text.setTextSize(10);
-                    break;
-                case "15":
-                    content_text.setTextSize(15);
-                    break;
-                case "20":
-                    content_text.setTextSize(20);
-                    break;
-                case "25":
-                    content_text.setTextSize(25);
-                    break;
-                case "30":
-                    content_text.setTextSize(30);
-                    break;
-            }
-        }
-    }
-
-    private void setTextFont() {
-        String text_font = sharedPreferences.getString("text_font_settings", "Pacifico");
-        if(text_font != null){
-            switch (text_font){
-                case "Oswald":
-                    content_text.setTypeface(oswald);
-                    break;
-                case "Pacifico":
-                    content_text.setTypeface(pacifico);
-                    break;
-                case "Pangolin":
-                    content_text.setTypeface(pangolin);
-                    break;
-                case "RobotoMono":
-                    content_text.setTypeface(robotomono);
-                    break;
-            }
-        }
-    }
-
-    private void setTextDecoration() {
-        String text_decoration = sharedPreferences.getString("text_style_settings", "Обычный");
-        if(text_decoration != null){
-            switch (text_decoration){
-                case "Жирный":
-                    content_text.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-                    break;
-                case "Курсив":
-                    content_text.setTypeface(Typeface.defaultFromStyle(Typeface.ITALIC));
-                    break;
-                case "Жирный-Курсив":
-                    content_text.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD_ITALIC));
-                    break;
-                case "Обычный":
-                    content_text.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                    break;
-            }
-        }
-    }
-
-    private void setTextColors() {
+    public void setTextColors() {
         String text_color = sharedPreferences.getString("text_color_settings", "Черный");
         if(text_color != null){
             switch (text_color){
@@ -223,7 +147,7 @@ public class PageContentActivity extends AppCompatActivity {
         }
     }
 
-    private void setBackgroundColors() {
+    public void setBackgroundColors() {
         String background_color = sharedPreferences.getString("background_color_settings", "Белый");
         if(background_color != null){
             switch (background_color){
@@ -258,7 +182,7 @@ public class PageContentActivity extends AppCompatActivity {
         }
     }
 
-    private void setActionbarColors() {
+    public void setActionbarColors() {
         String actionbar_color = sharedPreferences.getString("actionbar_color_settings", "Стандартный");
         if(actionbar_color != null){
             switch (actionbar_color){
@@ -301,4 +225,5 @@ public class PageContentActivity extends AppCompatActivity {
             }
         }
     }
+
 }

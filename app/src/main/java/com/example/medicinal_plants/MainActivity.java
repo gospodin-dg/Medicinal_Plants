@@ -7,29 +7,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-//import android.widget.Toolbar;
 import androidx.appcompat.widget.Toolbar;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import com.example.medicinal_plants.db.DbFunctions;
 import com.example.medicinal_plants.db.MedPlant;
 import com.example.medicinal_plants.db.MyAdapter;
 import com.example.medicinal_plants.settings.DbTableList;
 import com.example.medicinal_plants.settings.SettingsActivity;
 import com.google.android.material.navigation.NavigationView;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
 
     private DbFunctions dbFunctions;
     private ArrayList<MedPlant> medPlantsNameList;
-    private String[] plants_array;
     private ListView plants_view;
     private MyAdapter plants_adapter;
     private Toolbar toolbar;
@@ -44,8 +39,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void init(){
-
-
 
         plants_view = findViewById(R.id.plants_view);
         toolbar = findViewById(R.id.toolbar);
@@ -65,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 Intent intent = new Intent(MainActivity.this, PageContentActivity.class);
                 intent.putExtra("menu_item", menu_item);
-                intent.putExtra("menu_item_item", position);
+                intent.putExtra("selected_plant", medPlantsNameList.get(position));
                 startActivity(intent);
             }
         });
@@ -101,7 +94,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
