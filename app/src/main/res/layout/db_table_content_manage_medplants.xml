@@ -4,19 +4,89 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/color_gray">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintGuide_percent="0.27086183"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:alpha="1"
+        android:clickable="true"
+        app:backgroundTint="@color/purple_500"
+        app:layout_constraintBottom_toBottomOf="@+id/delete_btn"
+        app:layout_constraintStart_toEndOf="@+id/delete_btn"
+        app:layout_constraintTop_toTopOf="@+id/delete_btn"
+        app:srcCompat="@drawable/ic_medicinal_plants" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clEditImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:background="@android:drawable/editbox_background"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/imagePlant"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:background="@android:drawable/editbox_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo" />
+
+        <ImageButton
+            android:id="@+id/ibSearchImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_add" />
+
+        <ImageButton
+            android:id="@+id/ibDeleteImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@android:drawable/ic_delete" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:text="@string/med_plants_name"
         android:textColor="@color/logo"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/clEditImage" />
 
     <EditText
         android:id="@+id/name_plants_et"
@@ -28,7 +98,6 @@
         android:background="@android:drawable/editbox_background"
         android:ems="10"
         android:gravity="start|top"
-        android:inputType="textMultiLine"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,33 +107,40 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="@string/med_plants_desc"
         android:textColor="@color/logo"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_plants_et" />
+        app:layout_constraintTop_toBottomOf="@+id/ills_treat_et" />
 
     <EditText
         android:id="@+id/description_plants_et"
         android:layout_width="0dp"
-        android:layout_height="320dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="90dp"
         android:background="@android:drawable/editbox_background"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/name_plants_et"
-        app:layout_constraintStart_toStartOf="@+id/name_plants_et"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
         android:id="@+id/update_search_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="61dp"
         android:layout_marginBottom="25dp"
+        android:alpha="1"
         android:background="@color/purple_500"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
@@ -78,7 +154,8 @@
         android:id="@+id/delete_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="5dp"
+        android:alpha="1"
         android:background="@color/purple_500"
         android:paddingLeft="5dp"
         android:paddingTop="5dp"
@@ -93,7 +170,8 @@
         android:id="@+id/save_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
+        android:layout_marginEnd="5dp"
+        android:alpha="1"
         android:background="@color/purple_500"
         android:onClick="onClickSave"
         android:paddingLeft="5dp"
@@ -109,27 +187,29 @@
         android:id="@+id/ills_treat_et"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
         android:background="@android:drawable/editbox_background"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/description_plants_et"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/description_plants_et"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="@string/ills_treat"
         android:textColor="@color/logo"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description_plants_et" />
+        app:layout_constraintTop_toBottomOf="@+id/name_plants_et" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

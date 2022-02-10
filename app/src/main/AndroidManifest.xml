@@ -18,7 +18,8 @@
             android:name=".LogoActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Medicinal_Plants.NoActionBar">
+            android:theme="@style/Theme.Medicinal_Plants.NoActionBar"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +29,7 @@
         <activity android:name=".PageContentActivity" />
         <activity android:name=".settings.SettingsActivity" />
         <activity android:name=".settings.DbTableList" />
-        <activity android:name=".db.DbTableContentManageMedplants" />
+        <activity android:name=".db.DbTableMedplantsManager" />
     </application>
 
 </manifest>

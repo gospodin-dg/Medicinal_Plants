@@ -5,8 +5,10 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -15,68 +17,57 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.medicinal_plants.db.DbFunctions;
+import com.example.medicinal_plants.db.MedPlant;
+
+import java.util.ArrayList;
+
 public class PageContentActivity extends AppCompatActivity {
 
-    private ImageView pageContentHeader;
-    private LinearLayout pageContentFooter;
+    private ImageView pageContentHeaderImage;
+    private TextView content_text;
+    private TextView pageContentFooter;
     private ActionBar actionBar;
     private int menu_item = 0;
     private int menu_item_item = 0;
     private Intent intent;
-    private int[] medicinal_plants = {R.string.medicinal_plants_0, R.string.medicinal_plants_1, R.string.medicinal_plants_2, R.string.medicinal_plants_3,
-                                      R.string.medicinal_plants_4, R.string.medicinal_plants_5, R.string.medicinal_plants_6, R.string.medicinal_plants_7,
-                                      R.string.medicinal_plants_8, R.string.medicinal_plants_9, R.string.medicinal_plants_10, R.string.medicinal_plants_11,
-                                      R.string.medicinal_plants_12, R.string.medicinal_plants_13, R.string.medicinal_plants_14, R.string.medicinal_plants_15,
-                                      R.string.medicinal_plants_16, R.string.medicinal_plants_17, R.string.medicinal_plants_18, R.string.medicinal_plants_19,
-                                      R.string.medicinal_plants_20, R.string.medicinal_plants_21, R.string.medicinal_plants_22, R.string.medicinal_plants_23,
-                                      R.string.medicinal_plants_24, R.string.medicinal_plants_25, R.string.medicinal_plants_26};
+    private LinearLayout llImageHeader;
 
-    private int[] ills = {R.string.ills_0, R.string.ills_1, R.string.ills_2, R.string.ills_3, R.string.ills_4, R.string.ills_5, R.string.ills_6,
-                          R.string.ills_7, R.string.ills_8};
-    private int[] identifier = {R.string.identifier_0, R.string.identifier_1, R.string.identifier_2, R.string.identifier_3, R.string.identifier_4};
-    private int[] recipes = {R.string.recipes_0, R.string.recipes_1, R.string.recipes_2, R.string.recipes_3, R.string.recipes_4};
-    private int[] collection_storage = {R.string.collection_storage_0, R.string.collection_storage_1, R.string.collection_storage_2, R.string.collection_storage_3};
-    private int[] advices = {R.string.advices_0, R.string.advices_1, R.string.advices_2, R.string.advices_3};
-    private TextView content_text;
+    private DbFunctions db;
+    private ArrayList<MedPlant> medPlants;
+
+    private SharedPreferences sharedPreferences;
     private Typeface pangolin, oswald, pacifico, robotomono;
 
-    private String[] medicinal_plants_titles;
-    private String[] ills_titles;
-    private String[] identifier_titles;
-    private String[] recipes_titles;
-    private String[] collection_storage_titles;
-    private String[] advices_titles;
-    private SharedPreferences sharedPreferences;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_content);
         init();
-        setContentText();
     }
 
     private void init(){
+
         intent = getIntent();
+
         content_text = findViewById(R.id.page_content_text);
+        pageContentHeaderImage = findViewById(R.id.main_content_page_header);
+        pageContentFooter = findViewById(R.id.additional_content);
+        llImageHeader = findViewById(R.id.llImageHeader);
+
         if(getSupportActionBar() != null)
         {
             actionBar = getSupportActionBar();
         }
+
         pangolin = Typeface.createFromAsset(getAssets(),"fonts/Pangolin-Regular.ttf");
         oswald = Typeface.createFromAsset(getAssets(),"fonts/Oswald-Regular.ttf");
         pacifico = Typeface.createFromAsset(getAssets(),"fonts/Pacifico-Regular.ttf");
         robotomono = Typeface.createFromAsset(getAssets(),"fonts/RobotoMono-Regular.ttf");
         content_text.setTypeface(pangolin);
-        medicinal_plants_titles = getResources().getStringArray(R.array.medicinal_plants);
-        ills_titles = getResources().getStringArray(R.array.ills);
-        identifier_titles = getResources().getStringArray(R.array.identifier);
-        recipes_titles = getResources().getStringArray(R.array.recipes);
-        collection_storage_titles = getResources().getStringArray(R.array.collection_storage);
-        advices_titles = getResources().getStringArray(R.array.advices);
+
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        pageContentHeader = findViewById(R.id.main_content_page_header);
-        pageContentFooter = findViewById(R.id.main_content_page_footer);
 
         setTextSize();
         setTextFont();
@@ -84,6 +75,15 @@ public class PageContentActivity extends AppCompatActivity {
         setTextColors();
         setBackgroundColors();
         setActionbarColors();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        db = new DbFunctions(this);
+        db.openDB();
+        medPlants = db.readAllFromDB();
+        setContentText();
     }
 
     private void setContentText(){
@@ -94,39 +94,36 @@ public class PageContentActivity extends AppCompatActivity {
 
         switch (menu_item){
             case 0:
-                content_text.setText(medicinal_plants[menu_item_item]);
-                setTitleActionBar(medicinal_plants_titles, menu_item_item);
+                content_text.setText(medPlants.get(menu_item_item).getDesc());
+                if(getSupportActionBar() != null)
+                {
+                    actionBar.setTitle(medPlants.get(menu_item_item).getName());
+                }
+                pageContentFooter.setText(medPlants.get(menu_item_item).getIll());
+                if(medPlants.get(menu_item_item).getPhoto().equals("Empty")){
+                    llImageHeader.setVisibility(View.GONE);
+                } else {
+                    pageContentHeaderImage.setImageURI(Uri.parse(medPlants.get(menu_item_item).getPhoto()));
+                }
                 break;
             case 1:
-                content_text.setText(ills[menu_item_item]);
-                setTitleActionBar(ills_titles, menu_item_item);
+
                 break;
             case 2:
-                content_text.setText(identifier[menu_item_item]);
-                setTitleActionBar(identifier_titles, menu_item_item);
+
                 break;
             case 3:
-                content_text.setText(recipes[menu_item_item]);
-                setTitleActionBar(recipes_titles, menu_item_item);
+
                 break;
             case 4:
-                content_text.setText(collection_storage[menu_item_item]);
-                setTitleActionBar(collection_storage_titles, menu_item_item);
+
                 break;
             case 5:
-                content_text.setText(advices[menu_item_item]);
-                setTitleActionBar(advices_titles, menu_item_item);
+
                 break;
         }
     }
 
-    private void setTitleActionBar(String[] selected_menu_item, int selected_menu_item_item)
-    {
-        if (getSupportActionBar() != null)
-        {
-            actionBar.setTitle(selected_menu_item[selected_menu_item_item]);
-        }
-    }
 
     private void setTextSize() {
         String text_size = sharedPreferences.getString("text_size_settings", "15");
@@ -267,47 +264,38 @@ public class PageContentActivity extends AppCompatActivity {
             switch (actionbar_color){
                 case "Черный":
                     actionBar.setBackgroundDrawable(new ColorDrawable(Color.BLACK));
-                    pageContentHeader.setBackgroundColor(Color.BLACK);
                     pageContentFooter.setBackgroundColor(Color.BLACK);
                     break;
                 case "Белый":
                     actionBar.setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-                    pageContentHeader.setBackgroundColor(Color.WHITE);
                     pageContentFooter.setBackgroundColor(Color.WHITE);
                     break;
                 case "Желтый":
                     actionBar.setBackgroundDrawable(new ColorDrawable(Color.YELLOW));
-                    pageContentHeader.setBackgroundColor(Color.YELLOW);
                     pageContentFooter.setBackgroundColor(Color.YELLOW);
                     break;
                 case "Красный":
                     actionBar.setBackgroundDrawable(new ColorDrawable(Color.RED));
-                    pageContentHeader.setBackgroundColor(Color.RED);
                     pageContentFooter.setBackgroundColor(Color.RED);
                     break;
                 case "Зеленый":
                     actionBar.setBackgroundDrawable(new ColorDrawable(Color.GREEN));
-                    pageContentHeader.setBackgroundColor(Color.GREEN);
                     pageContentFooter.setBackgroundColor(Color.GREEN);
                     break;
                 case "Синий":
                     actionBar.setBackgroundDrawable(new ColorDrawable(Color.BLUE));
-                    pageContentHeader.setBackgroundColor(Color.BLUE);
                     pageContentFooter.setBackgroundColor(Color.BLUE);
                     break;
                 case "Серый":
                     actionBar.setBackgroundDrawable(new ColorDrawable(Color.GRAY));
-                    pageContentHeader.setBackgroundColor(Color.GRAY);
                     pageContentFooter.setBackgroundColor(Color.GRAY);
                     break;
                 case "Стандартный":
                     actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.purple_500)));
-                    pageContentHeader.setBackgroundColor(getResources().getColor(R.color.purple_500));
                     pageContentFooter.setBackgroundColor(getResources().getColor(R.color.purple_500));
                     break;
                 case "Фиолетовый":
                     actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.purple_200)));
-                    pageContentHeader.setBackgroundColor(getResources().getColor(R.color.purple_200));
                     pageContentFooter.setBackgroundColor(getResources().getColor(R.color.purple_200));
                     break;
             }

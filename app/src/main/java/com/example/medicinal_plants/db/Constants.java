@@ -17,11 +17,12 @@ public class Constants {
 
     public static final String  FOREIGN_KEY = "foreign_key";
 
-    public static final String CREATE_TABLE = "CREATE TABLE " + TABLE_MEDPLANTS + " (" +
+    public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_MEDPLANTS + " (" +
             _ID + " INTEGER PRIMARY KEY," +
             NAME + " TEXT," +
             DESCRIPTION + " TEXT," +
-            ILLS + " TEXT)";
+            ILLS + " TEXT," +
+            PHOTO + " TEXT)";
 
 
     public static final String DELETE_TABLE = "DROP TABLE IF EXISTS " + TABLE_MEDPLANTS;

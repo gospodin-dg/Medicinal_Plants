@@ -7,6 +7,7 @@ public class MedPlant {
     private String name;
     private String desc;
     private String ill;
+    private String photo;
 
     public String getName() {
         return name;
@@ -30,5 +31,13 @@ public class MedPlant {
 
     public void setIll(String ill) {
         this.ill = ill;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 }

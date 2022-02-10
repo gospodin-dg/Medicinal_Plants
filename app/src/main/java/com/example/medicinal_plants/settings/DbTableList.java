@@ -11,7 +11,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.medicinal_plants.R;
-import com.example.medicinal_plants.db.DbTableContentManageMedplants;
+import com.example.medicinal_plants.db.DbTableMedplantsManager;
 
 public class DbTableList extends AppCompatActivity {
     private ActionBar actionBar;
@@ -41,7 +41,7 @@ public class DbTableList extends AppCompatActivity {
     }
 
     public void onMedPlantsClick(View view){
-        Intent intent = new Intent(DbTableList.this, DbTableContentManageMedplants.class);
+        Intent intent = new Intent(DbTableList.this, DbTableMedplantsManager.class);
         startActivity(intent);
     }
 

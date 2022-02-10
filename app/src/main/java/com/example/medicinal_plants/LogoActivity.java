@@ -60,6 +60,7 @@ public class LogoActivity extends AppCompatActivity {
 
     public void onClickStartApp(View view) {
         Intent intent = new Intent(LogoActivity.this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 
@@ -68,4 +69,7 @@ public class LogoActivity extends AppCompatActivity {
         super.onStop();
         finish();
     }
+
+
+
 }

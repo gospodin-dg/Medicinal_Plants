@@ -12,4 +12,5 @@
     <color name="logo">#424242</color>
     <color name="green">#3FF30C</color>
     <color name="background_page_manage_content">#BDFAAE</color>
+    <color name="color_gray">#DDDBDB</color>
 </resources>

@@ -6,9 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 //import android.widget.Toolbar;
 import androidx.appcompat.widget.Toolbar;
 
@@ -18,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.medicinal_plants.db.DbContentManagement;
+import com.example.medicinal_plants.db.DbFunctions;
 import com.example.medicinal_plants.db.MedPlant;
 import com.example.medicinal_plants.db.MyAdapter;
 import com.example.medicinal_plants.settings.DbTableList;
@@ -26,12 +24,10 @@ import com.example.medicinal_plants.settings.SettingsActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
 
-    private DbContentManagement dbContentManagement;
+    private DbFunctions dbFunctions;
     private ArrayList<MedPlant> medPlantsNameList;
     private String[] plants_array;
     private ListView plants_view;
@@ -78,9 +74,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onResume() {
         super.onResume();
-        dbContentManagement = new DbContentManagement(this);
-        dbContentManagement.openDB();
-        medPlantsNameList = dbContentManagement.readAllFromDB();
+        dbFunctions = new DbFunctions(this);
+        dbFunctions.openDB();
+        medPlantsNameList = dbFunctions.readAllFromDB();
         plants_adapter = new MyAdapter(this, R.layout.list_item, medPlantsNameList);
         plants_view.setAdapter(plants_adapter);
     }
@@ -88,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        dbContentManagement.closeDB();
+        dbFunctions.closeDB();
     }
 
     @Override
@@ -133,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     {
 
         plants_adapter.clear();
-        medPlantsNameList = dbContentManagement.readAllFromDB();
+        medPlantsNameList = dbFunctions.readAllFromDB();
         plants_adapter.addAll(medPlantsNameList);
         plants_adapter.notifyDataSetChanged();
         toolbar.setTitle(page_title);
@@ -180,4 +176,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         return true;
     }
+
 }
