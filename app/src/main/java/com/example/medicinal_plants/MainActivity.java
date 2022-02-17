@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.SearchView;
+
 import androidx.appcompat.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -69,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onResume();
         dbFunctions = new DbFunctions(this);
         dbFunctions.openDB();
-        medPlantsNameList = dbFunctions.readAllFromDB();
+        medPlantsNameList = dbFunctions.readAllFromDB("");
         plants_adapter = new MyAdapter(this, R.layout.list_item, medPlantsNameList);
         plants_view.setAdapter(plants_adapter);
     }
@@ -94,7 +96,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.search_menu, menu);
         getMenuInflater().inflate(R.menu.main, menu);
+
+        MenuItem menuItem = menu.findItem(R.id.search_menu);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                plants_adapter.clear();
+                medPlantsNameList = dbFunctions.readAllFromDB(newText);
+                plants_adapter.addAll(medPlantsNameList);
+                plants_adapter.notifyDataSetChanged();
+                return false;
+            }
+        });
+
+
         return true;
     }
 
@@ -121,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     {
 
         plants_adapter.clear();
-        medPlantsNameList = dbFunctions.readAllFromDB();
+        medPlantsNameList = dbFunctions.readAllFromDB("");
         plants_adapter.addAll(medPlantsNameList);
         plants_adapter.notifyDataSetChanged();
         toolbar.setTitle(page_title);

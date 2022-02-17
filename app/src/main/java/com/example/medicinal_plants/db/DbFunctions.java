@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.nio.channels.Selector;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,9 +33,11 @@ public class DbFunctions {
         db.insert(Constants.TABLE_MEDPLANTS, null, cv);
     }
 
-    public ArrayList<MedPlant> readAllFromDB(){
+    public ArrayList<MedPlant> readAllFromDB(String searchText){
         ArrayList<MedPlant> med_plants = new ArrayList<MedPlant>();
-        Cursor cursor = db.query(Constants.TABLE_MEDPLANTS, null, null, null, null, null, null);
+        String selector = Constants.NAME + " like ?";
+
+        Cursor cursor = db.query(Constants.TABLE_MEDPLANTS, null, selector, new String[]{'%' + searchText + '%'}, null, null, null);
         while (cursor.moveToNext()){
 
             MedPlant medPlant = new MedPlant();

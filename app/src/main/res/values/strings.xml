@@ -175,6 +175,8 @@
     <string name="med_plants_save">Запись сохранена в Базе данных!</string>
     <string name="med_plants_no_save">Одно из полей не заполнено! Заполните ВСЕ поля!</string>
 
+    <string name="search">Поиск...</string>
+
 
 
 
